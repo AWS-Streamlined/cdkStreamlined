@@ -4,8 +4,9 @@ Repository that acts as a template for AWS CDK applications
 
 ## AWS CDK
 
-![Developer Guide](https://docs.aws.amazon.com/cdk/v2/guide/reference.html)
-![API Reference](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-construct-library.html)
+[Developer Guide](https://docs.aws.amazon.com/cdk/v2/guide/reference.html)
+
+[API Reference](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-construct-library.html)
 
 ## Bootstrap This Repository
 
