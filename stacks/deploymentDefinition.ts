@@ -1,5 +1,5 @@
 const mappings: Record<string, { accountNumber: string; regions: string[]; requiresValidation?: boolean }> = {
-  // Stage names can be anything, but they need to map what you will supply in CDK_DEPLOY_STAGE
+  // Stage names can be anything, but they need to map to what you will supply in CDK_DEPLOY_STAGE
   dev: {
     accountNumber: "545801598759", // TODO modify to your dev account number
     regions: ["us-east-1"], // TODO modify to your desired regions

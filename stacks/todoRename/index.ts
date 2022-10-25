@@ -3,6 +3,7 @@ import { Construct } from "constructs";
 import { CfnOutput, Environment } from "aws-cdk-lib";
 import { FunctionUrlAuthType, Runtime } from "aws-cdk-lib/aws-lambda";
 import { NodejsFunction } from "aws-cdk-lib/aws-lambda-nodejs";
+import { ResourceNameGenerator } from "../resourceNameGenerator";
 
 interface StackProps extends cdk.StackProps {
   env: Required<Environment> & {
@@ -14,8 +15,8 @@ export class TodoRenameStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props: StackProps) {
     super(scope, id, props);
 
-    const dummyLambda = new NodejsFunction(this, `${props.env.stage}-${props.env.region}-dummyLambda`, {
-      functionName: `${props.env.stage}-${props.env.region}-dummyLambda`,
+    const dummyLambda = new NodejsFunction(this, ResourceNameGenerator.singleton().generateNameFor("dummyLambda"), {
+      functionName: ResourceNameGenerator.singleton().generateNameFor("dummyLambda"),
       entry: "./services/functions/dummyLambda/handler.ts",
       handler: "main",
       environment: {
