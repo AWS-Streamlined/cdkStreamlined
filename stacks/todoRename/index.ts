@@ -1,24 +1,25 @@
 import * as cdk from "aws-cdk-lib";
 import { Construct } from "constructs";
-import { Aws, CfnOutput } from "aws-cdk-lib";
-import { PolicyStatement, Effect } from "aws-cdk-lib/aws-iam";
+import { CfnOutput, Environment } from "aws-cdk-lib";
 import { FunctionUrlAuthType, Runtime } from "aws-cdk-lib/aws-lambda";
 import { NodejsFunction } from "aws-cdk-lib/aws-lambda-nodejs";
 
+interface StackProps extends cdk.StackProps {
+  env: Required<Environment> & {
+    stage: string;
+  };
+}
+
 export class TodoRenameStack extends cdk.Stack {
-  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+  constructor(scope: Construct, id: string, props: StackProps) {
     super(scope, id, props);
 
-    if (!props?.env?.region) {
-      throw Error("Region not specified. Aborting...");
-    }
-
-    const dummyLambda = new NodejsFunction(this, "dummyLambda", {
-      functionName: "dummyLambda",
+    const dummyLambda = new NodejsFunction(this, `${props.env.stage}-${props.env.region}-dummyLambda`, {
+      functionName: `${props.env.stage}-${props.env.region}-dummyLambda`,
       entry: "./services/functions/dummyLambda/handler.ts",
       handler: "main",
       environment: {
-        REGION: props?.env?.region,
+        REGION: props.env.region,
       },
       runtime: Runtime.NODEJS_16_X,
     });
