@@ -12,7 +12,7 @@ Repository that acts as a template for AWS CDK applications
 [Opinionated Guide](https://github.com/kevinslin/open-cdk#config)
 [Compendium of CDK resources](https://github.com/kalaiser/awesome-cdk)
 [Compendium of CDK examples](https://github.com/aws-samples/aws-cdk-examples/tree/master/typescript)
-[Compendium of CDK reusable modules]()
+[Compendium of reusable CDK modules](https://github.com/AWS-Streamlined/cdkModuleTemplates)
 
 ## Bootstrap This Repository
 
