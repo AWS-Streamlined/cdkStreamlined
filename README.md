@@ -4,11 +4,15 @@ Repository that acts as a template for AWS CDK applications
 
 ![CDK Streamlined](./docs/diagrams/cdkStreamlined.png)
 
-## AWS CDK
+## AWS CDK Resources
 
 [Developer Guide](https://docs.aws.amazon.com/cdk/v2/guide/reference.html)
-
 [API Reference](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-construct-library.html)
+[CDK GitHub](https://github.com/aws/aws-cdk)
+[Opinionated Guide](https://github.com/kevinslin/open-cdk#config)
+[Compendium of CDK resources](https://github.com/kalaiser/awesome-cdk)
+[Compendium of CDK examples](https://github.com/aws-samples/aws-cdk-examples/tree/master/typescript)
+[Compendium of CDK reusable modules]()
 
 ## Bootstrap This Repository
 
