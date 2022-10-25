@@ -1,16 +1,4 @@
-# CDK Streamlined
-
-Repository that acts as a template for AWS CDK applications
-
-![CDK Streamlined](./docs/diagrams/cdkStreamlined.png)
-
-## AWS CDK
-
-[Developer Guide](https://docs.aws.amazon.com/cdk/v2/guide/reference.html)
-
-[API Reference](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-construct-library.html)
-
-## Bootstrap This Repository
+Steps to bootstrap your CDK application from this repository!
 
 1. Install all dependencies: `npm install`
 2. Bootstrap the AWS CDK in each AWS account and region where you plan to deploy stacks: `npx cdk bootstrap aws://ACCOUNT-NUMBER/REGION`
