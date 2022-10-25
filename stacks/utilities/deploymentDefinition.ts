@@ -1,28 +1,17 @@
-const mappings: Record<string, { accountNumber: string; regions: string[]; requiresValidation?: boolean }> = {
-  // Stage names can be anything, but they need to map to what you will supply in CDK_DEPLOY_STAGE
-  dev: {
-    accountNumber: "545801598759", // TODO modify to your dev account number
-    regions: ["us-east-1"], // TODO modify to your desired regions
-  },
-  /* Include any other stage that you will use
-  staging: {
-    accountNumber: "1234567890",
-    regions: ["us-east-1"],
-  },
-  */
-  prod: {
-    accountNumber: "545801598759", // TODO modify to your prod account number
-    regions: ["us-east-2"], // TODO modify to your desired regions
-    requiresValidation: true,
-  },
-};
+export type DeploymentDefinitionConfig = Record<
+  string,
+  { accountNumber: string; regions: string[]; requiresValidation?: boolean } & Record<string, any>
+>;
 
 export class DeploymentDefinition {
   private accountNumber: string;
   private specifiedRegion: string;
   private specifiedStage: string;
+  private config: DeploymentDefinitionConfig;
 
-  constructor() {
+  constructor(config: DeploymentDefinitionConfig) {
+    this.config = config;
+
     this.validateDeployment();
   }
 
@@ -38,7 +27,7 @@ export class DeploymentDefinition {
     this.specifiedRegion = process.env.CDK_DEPLOY_REGION;
     this.specifiedStage = process.env.CDK_DEPLOY_STAGE;
 
-    const stage = mappings[this.specifiedStage];
+    const stage = this.config[this.specifiedStage];
 
     if (!stage) {
       throw Error(
